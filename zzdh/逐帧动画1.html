@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+		.box{
+			height: 119px;/* 图片高度 */
+			width: 73px;/* 图片总宽度除以帧数 */
+			background:url(images/hua.jpg)left no-repeat;
+			animation:fly 3s steps(6) infinite;/* steps()里面的数字是帧数 */
+		}
+		@keyframes fly{
+			0%{
+				background-position:0 0;
+			}
+			100%{
+				background-position:-438px 0;/* 图片总宽度 */
+			}
+		}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+	</body>
+</html>
