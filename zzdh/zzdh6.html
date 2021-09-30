@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+		.box{
+			height: 293px;
+			width: 180px;
+			background:url(images/walk.jpg)left no-repeat;
+			animation:fly 3s steps(6) infinite;
+		}
+		@keyframes fly{
+			0%{
+				background-position:0 0;
+			}
+			100%{
+				background-position:-1080px 0;
+			}
+		}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+	</body>
+</html>
