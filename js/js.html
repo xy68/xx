@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+		.p{
+			display: none;
+		}
+		.s1{
+			width: 200px;
+			height: 20px;
+			background:pink;
+		}
+		.s2{
+			width: 200px;
+			height: 100px;
+			background-color: yellow;
+		}
+		select,input{
+			margin: 4px;
+		}
+		.link{
+			cursor:pointer;
+			text-decoration: underline;
+		}
+		.tp{
+			position:fixed;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background:rgba(0,0,0,.3);
+			display:none;
+			z-index:1;
+		}
+		.tp .tp1{
+			background:white;
+			border-radius:5px;
+			width: 200px;
+			height: 200px;
+			text-align: center;
+			box-sizing:border-box;
+			padding-top: 20px;
+			position:absolute;
+			left:50%;
+			top:50%;
+			margin-left: -100px;
+			margin-top: -100px;
+		}
+		.tp1 .close{
+			position:absolute;
+			right: 15px;
+			top: 0px;
+			color:black;
+			font-weight:bold;
+			cursor:pointer;
+		}
+		.inputBox{
+			display:inline-block;
+			position:relative;
+		}
+		.mm{
+			border:2px solid gray;
+			background:url(images/suo.png);
+			background-size:contain;
+			background-repeat:no-repeat;
+			background-position:left;
+			padding-left:2em;
+		}
+		}
+		.mm:focus{
+			outline:none;
+			border-color:green;
+		}
+		.eye{
+			position:absolute;
+			right:12px;
+			top:2px;
+			width: 20px;
+			height: 100%;
+		}
+		.tph{
+			border:1px solid gray;
+			width: 900px;
+			height: 950px;
+			position:relative;
+		}
+		.tpj{
+			position:absolute;
+			left:50%;
+			margin-left: -170px;
+		}
+		.tpj img{
+			width: 340px;
+			height: 640px;
+		}
+		.tpf{
+			float: left;
+		}
+		.tpf div{
+			float: left;
+			margin: 30px;
+			position:relative;
+			bottom:-650px;
+		}
+		.tpf div img{
+			width: 120px;
+			height: 256px;
+		}
+		</style>
+	</head>
+	<body>
+		<input type="checkbox" class="a1">十天内免登录
+		<p class="p">十天之内不用输入密码直接登录</p>
+		<div class="s1"><span>站内搜索</span></div>
+		<div class="s2">
+			<select>
+				<option>全部内容</option>
+			</select>
+			<input type="text" value="关键字" class="a2">
+			<input type="submit" value="搜索" class="a3">
+		</div>
+		<div class="link">登录</div>
+		<div class="tp">
+			<div class="tp1">
+				<p>扫码登录</p>
+				<p class="close">X</p>
+			</div>
+		</div>
+		<div class="inputBox">
+			<input type="password" placeholder="密码" class="mm" value="">
+			<div class="eye">
+				<img src="images/eyenone.png" class="imgs">
+			</div>
+		</div>
+		<div class="tph">
+			<div class="tpj">
+				<img src="images/ji1.jpg" class="jji1">
+			</div>
+			<div class="tpf">
+				<div>
+					<img src="images/ji1.jpg" class="ji1">
+				</div>
+				<div>
+					<img src="images/ji2.jpg" class="ji2">
+				</div>
+				<div>
+					<img src="images/ji3.jpg" class="ji3">
+				</div>
+				<div>
+					<img src="images/ji4.jpg" class="ji4">
+				</div>
+				<div>
+					<img src="images/ji5.jpg" class="ji5">
+				</div>
+			</div>
+		</div>
+		<script>
+		let checkbox=document.querySelector('.a1');
+		let p1=document.querySelector('.p');
+		checkbox.onmouseover=function(){
+			p1.style.display='block';
+		}
+		checkbox.onmouseleave=function(){
+			p1.style.display='none';
+		}
+		let txt=document.querySelector('.a2');
+		let box=document.querySelector('.s2');
+		txt.onmouseup=function(){
+			if(txt.value==="关键字"){
+				txt.value="";
+			}else{
+				txt.value=txt.value;
+			}
+		}
+		box.onmousedown=function(){
+			if(txt.value===""){
+				txt.value="关键字";
+			}
+		}
+		let link=document.querySelector('.link');
+		let tp=document.querySelector('.tp');
+		let close=document.querySelector('.close');
+		link.onclick=function(){
+			tp.style.display='block';
+		}
+		close.onclick=function(){
+			tp.style.display='none';
+		}
+		let eye=document.querySelector('.eye');
+		let mm=document.querySelector('.mm');
+		let imgs=document.querySelector('.imgs')
+		let flag=0;
+		eye.onclick=function(){
+			if(flag===0){
+				mm.type="text";
+				imgs.src='images/eyesee.png';
+				flag=1;
+			}else{
+				mm.type='password';
+				imgs.src='images/eyenone.png';
+				flag=0;
+			}
+		}
+		let ji1=document.querySelector('.ji1');
+		let ji2=document.querySelector('.ji2');
+		let ji3=document.querySelector('.ji3');
+		let ji4=document.querySelector('.ji4');
+		let ji5=document.querySelector('.ji5');
+		let jji1=document.querySelector('.jji1');
+		ji1.onmouseover=function(){
+			jji1.src='images/ji1.jpg';
+		}
+		ji2.onmouseover=function(){
+			jji1.src='images/ji2.jpg';
+		}
+		ji3.onmouseover=function(){
+			jji1.src='images/ji3.jpg';
+		}
+		ji4.onmouseover=function(){
+			jji1.src='images/ji4.jpg';
+		}
+		ji5.onmouseover=function(){
+			jji1.src='images/ji5.jpg';
+		}
+		</script>
+	</body>
+</html>
