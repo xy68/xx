@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+		//js练习2的
+		//第一题
+		document.write('<h2>js练习2第一题</h2>');
+		let a1=23,a2=22;
+		if(a1>a2){
+			document.write('a大于b');
+		}else if(a1<a2){
+			document.write('a小于b');
+		}else{
+			document.write('a等于b');
+		}
+		document.write('<hr>');
+		
+		//第二题
+		document.write('<h2>js练习2第二题</h2>');
+		let a22=55;
+		if(a22%5===0){
+			document.write('可以被5整除'+a22/5);
+		}else{
+			document.write('不可以被5整除');
+		}
+		document.write('<hr>');
+		//第三题
+		document.write('<h2>js练习2第三题</h2>');
+		for(i=0;i<=100;i++){
+			if(i%2===0){
+				document.write(i+' ');
+			}
+		}
+		document.write('<hr>');
+		//第四题
+		document.write('<h2>js练习2第四题</h2>');
+		let a4=1;
+		while(a4<101){
+			if(a4%7===0){
+				document.write(a4+' ');
+			}
+			a4++;
+		}
+		document.write('<hr>');
+		//第五题
+		document.write('<h2>js练习2第五题</h2>');
+		let a51=12,a52=13,a53=14;
+		if(a51>a52&&a51>a53){
+			document.write(a51);
+		}else if(a52>a51&&a52>a53){
+			document.write(a52);
+		}else{
+			document.write(a53);
+		}
+		document.write('<hr>');
+		//js练习三的
+		//第一题
+		document.write('<h2>js练习3第一题</h2>');
+		let ou='';
+		let ji='';
+		for(let i=0;i<=100;i++){
+			if(i%2===0){
+				ou+=i+' ';
+			}else{
+				ji+=i+' ';
+			}
+		}
+			document.write(ou);
+			document.write('<br>')
+			document.write(ji);
+		document.write('<hr>');
+		//第二题
+		document.write('<h2>js练习3第二题</h2>');
+		let y;
+		test(123,53,34,54);
+		function test(...arr){
+			let result=0;
+			let lengt='';
+			for(let i=arr.length-1;i>=0;i--){
+				result+=arr[i];
+				lengt+=arr[i]+"+";
+			}
+			y=lengt.substr(0,lengt.lastIndexOf('+'));
+			document.write(y+'='+result);
+		}
+		document.write('<hr>');
+		//补充
+		document.write('<h2>补充</h3>');
+		let button1=document.createElement('button');
+		let p1=document.createElement('p');
+		let input1=document.createElement('input');
+		let input2=document.createElement('input');
+		let body=document.querySelector('body');
+		input1.setAttribute('id','input11');
+		input2.setAttribute('id','input12');
+		body.appendChild(input1);
+		body.appendChild(input2);
+		button1.textContent='比较大小';
+		button1.onclick=function(){
+			let a=document.getElementById('input11').value;
+			let b=document.getElementById('input12').value;
+			let aa=Number(a);
+			let bb=Number(b);
+			if(a===''||b===''){
+				p1.textContent='没有数据';
+			}else if(isNaN(aa)||isNaN(bb)){
+				p1.textContent='不是数值型';
+			}else if(aa<bb){
+				p1.textContent='a小于b';
+			}else if(aa===bb){
+				p1.textContent='a等于b';
+			}else{
+				p1.textContent='a大于b';
+			}
+		}
+		body.appendChild(button1);
+		body.appendChild(p1);
+		document.write('<hr>');
+		</script>
+	</body>
+</html>
