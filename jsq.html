@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+		{
+			//第一题
+			document.write('<h2>js练习题4第一题</h2>')
+			function zfc(num){
+				num=num.split('.');
+				for (i in num){
+					zu=num[i]+'.';
+					str=num.reverse(zu).join('.');
+				}
+				document.write(str+'<br>');
+			}
+			let l='12.32.43';
+			zfc(l);
+			let c='a.f.g.a.e';
+			zfc(c);
+			document.write('<hr>');
+		}
+		{
+			//第二题
+			document.write('<h2>js练习题4第二题</h2>')
+			function ip(z){
+				b=z.lastIndexOf('.')
+				c=z.slice(0,b+1);
+				document.write(c+'*');
+			}
+			let s="127.12.122.122";
+			ip(s);
+			document.write('<hr>');
+		}
+		{
+			//第三题
+			document.write('<h2>js练习题4第三题</h2>')
+			let d=new Date();
+			let week='日一二三四五六';
+			document.write(`${d.getFullYear()}年${d.getMonth()}月${d.getDate()}日,${d.getHours()}:${d.getMinutes()}:${d.getSeconds()},星期${week[d.getDay()]}`);
+			document.write('<hr>');
+		}
+		{
+			//第四题
+			document.write('<h2>js练习题4第四题</h2>')
+			function cs(z){
+				let a=z.length
+				if(a>=2&&a<=10){
+					document.write('字符串长度符合要求')
+				}else{
+					document.write('字符串长度不符合要求')
+				}
+			}
+			cs("agef");
+			document.write('<hr>');
+		}
+		{
+			//js练习5第二题
+			document.write('<h2>js练习题5，第二题</h2>');
+			   let s = '';
+			   for (let i = 0; i <= 3; i++) {
+			    let a = Math.floor(Math.random() * 10);
+			    s += a + ' ';
+			    }
+			    document.write(`产生的四位随机数为：${s}`);
+			    document.write('<hr>');
+		}
+		{
+			document.write('<h2>四则运算</h2>');
+			const input1=document.createElement('input');
+			input1.setAttribute('type','Text');
+			input1.setAttribute('placeholder','输入a的值');
+			document.body.appendChild(input1);
+			let txt=document.createTextNode('\n');
+			document.body.appendChild(txt);
+			let select=document.createElement('select');
+			select.id='xz';
+			document.body.appendChild(select);
+			let obj=document.getElementById('xz');
+			obj.add(new Option('+',1));
+			obj.add(new Option('-',2));
+			obj.add(new Option('*',3));
+			obj.add(new Option('/',4));    
+			txt=document.createTextNode('\n');
+			document.body.appendChild(txt);
+			const input2=document.createElement('input');
+			input2.setAttribute('type','Text');
+			input2.setAttribute('placeholder','输入b的值');
+			document.body.appendChild(input2);
+			txt=document.createTextNode('\n');
+			document.body.appendChild(txt);
+			const button=document.createElement('button');
+			button.textContent='=';
+			document.body.appendChild(button);
+			txt=document.createTextNode('\n');
+			document.body.appendChild(txt);
+			const input3=document.createElement('input');
+			input3.setAttribute('type','Text');
+			document.body.appendChild(input3);
+			const para=document.createElement('p');
+			document.body.appendChild(para);
+			button.onclick=function(){
+				let sy=select.options[select.selectedIndex].text;
+				let jg=0;
+				let a=input1.value.trim();
+				let b=input2.value.trim();
+				let cw='';
+				if(a===''||b===''){
+					cw='没有值';
+					jg=''
+				}else if(isNaN(a)||isNaN(b)){
+					cw='不是数字';
+					jg=''
+				}else{
+					a*=1;
+					b*=1;
+					switch(sy){
+						case'+':
+						jg=a+b;
+						break;
+						case'-':
+						jg=a-b;
+						break;
+						case'*':
+						jg=a*b;
+						break;
+						case'/':
+						if(b===0){
+							cw='除数不能为0';
+						}else{
+							jg=a/b;
+						}
+						break;
+					}
+				}
+				para.textContent=cw;
+				input3.value=jg;
+			}
+			document.write('<hr>');
+		}
+		{
+			let div=document.createElement('div');
+			div.setAttribute('id','clock');
+			document.body.appendChild(div);
+			var clock = new Clock();
+			clock.display(document.getElementById("clock"));
+			function Clock() {
+				var date = new Date();
+				this.year = date.getFullYear();
+				this.month = date.getMonth() + 1;
+				this.date = date.getDate();
+				this.day = new Array("星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六")[date.getDay()];
+				this.hour = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+				this.minute = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+				this.second = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+				this.toString = function() {
+				return "现在是:" + this.year + "年" + this.month + "月" + this.date + "日 " + this.hour + ":" + this.minute + ":" + this.second + " " + this.day; 
+			};
+				this.toSimpleDate = function() {
+					return this.year + "-" + this.month + "-" + this.date;
+				};
+				this.toDetailDate = function() {
+					return this.year + "-" + this.month + "-" + this.date + " " + this.hour + ":" + this.minute + ":" + this.second;
+				};
+				this.display = function(ele) {
+					var clock = new Clock();
+					ele.innerHTML = clock.toString();
+					window.setTimeout(function() {clock.display(ele);}, 1000);
+				};
+			}
+		}
+		</script>
+	</body>
+</html>
