@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text">
+		<button>添加</button><br>
+		<button>清空列表</button><br>
+		<hr>
+		1.c
+		2.B
+		3.c
+		4.B
+		5.D
+		6.B
+		7.c
+		8.D
+		9.A
+		10.A
+		11.c
+		12.A
+		13.B
+		14.D
+		15.B
+		16.c
+		17.A
+		18.B
+		19.A
+		20.D
+		<hr>
+		<pre>
+		for($i=1;$i<101;$i++){
+			echo $i.' ';
+		}
+		echo '<hr>';
+		for($i=1;$i<101;$i+=2){
+			echo $i.' ';
+		}
+		echo '<hr>';
+		echo '一：';
+		for($i=1;$i<101;$i++){
+			if($i%3==0)
+				echo 'foo';
+			elseif($i%5==0)
+				echo 'bar';
+			elseif($i%3==0&&$i%5==0)
+				echo 'foobar';
+			else echo $i;
+			echo ' ';
+		}
+		echo '<hr>';
+		echo '二：';
+		for($i=1;$i<101;$i++){
+			if($i%3==0&&$i%5==0)
+				echo 'foobar';
+			elseif($i%5==0)
+				echo 'bar';
+			elseif($i%3==0)
+				echo 'foo';
+			else echo $i;
+			echo ' ';
+		}	
+		</pre>
+	</body>
+	<script src="jquery.min.js"></script>
+	<script>
+	let i=0;
+	$('button').eq(0).click(function(){
+		$(this).after('<p>'+'×'+$('input').val()+'</p>');
+		$('p').click(function(){
+			$(this).remove();
+		})
+		i+=1;
+		$('input').val('');
+	});
+	$('button').eq(1).click(function(){
+		$('p').remove();
+		$('input').val('');
+	})
+	</script>
+</html>
